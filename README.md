@@ -15,12 +15,14 @@
 ## 📋 Table of Contents
 
 - [Overview](#overview)
+- [Demo Login](#demo-login)
 - [Features](#features)
 - [Technology Stack](#technology-stack)
 - [Installation](#installation)
 - [Usage](#usage)
-- [API Documentation](#api-documentation)
+- [Project Structure](#project-structure)
 - [Database Schema](#database-schema)
+- [API Documentation](#api-documentation)
 - [Contributing](#contributing)
 - [License](#license)
 - [Support](#support)
@@ -38,37 +40,67 @@
 - 💳 **Multiple Payment Options** - COD, Transfer Bank, dan E-Wallet
 - 📊 **Admin Dashboard** - Komprehensif untuk manajemen bisnis
 - 🎨 **Responsive Design** - Optimized untuk desktop dan mobile
+- 📱 **Mobile Friendly** - Fully responsive untuk semua device
+
+---
+
+## 🔑 Demo Login
+
+Untuk testing aplikasi, gunakan akun demo berikut:
+
+### 👨‍💼 Admin Account
+```
+Email: admin@msglow.com
+Password: admin123
+```
+**Akses:** Dashboard admin, manajemen produk, pesanan, user, dan laporan
+
+### 👤 User Account
+```
+Email: user@msglow.com
+Password: user123
+```
+**Akses:** Shopping, checkout, riwayat pesanan, dan profil user
+
+> **Note:** Pastikan data demo sudah diimport ke database menggunakan file `msglow_store_database.sql`
 
 ---
 
 ## ✨ Features
 
 ### For Customers
-- [x] User registration and authentication
-- [x] Product catalog with search and filter
-- [x] Shopping cart management
-- [x] Multi-step checkout process
-- [x] Multiple shipping options
-- [x] Order history and tracking
-- [x] User profile management
-- [x] Responsive design
+- [x] **User Registration & Authentication** - Daftar dan login yang aman
+- [x] **Product Catalog** - Browse produk dengan search dan filter
+- [x] **Shopping Cart Management** - Kelola keranjang belanja
+- [x] **Multi-step Checkout Process** - Proses checkout yang mudah
+- [x] **Multiple Shipping Options** - Pilihan pengiriman (Reguler, Express, Instant)
+- [x] **Multiple Payment Methods** - COD, Transfer Bank, E-Wallet
+- [x] **Order History & Tracking** - Riwayat dan tracking pesanan
+- [x] **User Profile Management** - Kelola profil dan alamat
+- [x] **Product Reviews** - Review dan rating produk
+- [x] **Responsive Design** - Optimized untuk mobile dan desktop
 
 ### For Administrators
-- [x] Comprehensive admin dashboard
-- [x] Product management (CRUD operations)
-- [x] Category management
-- [x] Order processing and status updates
-- [x] Payment method configuration
-- [x] User management
-- [x] Sales analytics and reports
+- [x] **Comprehensive Admin Dashboard** - Dashboard lengkap dengan statistik
+- [x] **Product Management** - CRUD operations untuk produk
+- [x] **Category Management** - Kelola kategori produk
+- [x] **Order Processing** - Update status pesanan dan fulfillment
+- [x] **Payment Method Configuration** - Kelola metode pembayaran
+- [x] **Shipping Method Management** - Kelola opsi pengiriman
+- [x] **User Management** - Kelola user dan admin
+- [x] **Sales Analytics & Reports** - Laporan penjualan dan PDF export
+- [x] **Coupon Management** - Kelola kupon dan diskon
+- [x] **Product Reviews Moderation** - Moderasi review produk
 
 ### Technical Features
-- [x] Session-based authentication
-- [x] SQL injection protection
-- [x] File upload validation
-- [x] Image optimization
-- [x] Database relationship integrity
-- [x] Error handling and logging
+- [x] **Session-based Authentication** - Keamanan berbasis session
+- [x] **SQL Injection Protection** - Prepared statements dan sanitization
+- [x] **File Upload Validation** - Validasi upload gambar yang aman
+- [x] **Image Optimization** - Optimasi gambar produk
+- [x] **Database Relationship Integrity** - Foreign key constraints
+- [x] **Error Handling & Logging** - Penanganan error yang baik
+- [x] **AJAX Integration** - Real-time updates tanpa refresh
+- [x] **PDF Report Generation** - Export laporan ke PDF
 
 ---
 
@@ -79,18 +111,21 @@
 - **Database**: MySQL 8.0+
 - **Web Server**: Apache 2.4+
 - **Architecture**: MVC Pattern
+- **Session Management**: PHP Sessions
 
 ### Frontend
 - **Framework**: Bootstrap 5.0+
-- **JavaScript**: Vanilla JS + jQuery
+- **JavaScript**: Vanilla JS + jQuery 3.6+
 - **CSS**: Custom CSS + Bootstrap
-- **Icons**: Font Awesome
+- **Icons**: Font Awesome 6.4+
+- **Charts**: Chart.js (untuk dashboard)
 
 ### Development Tools
 - **Version Control**: Git
 - **Development Environment**: XAMPP/MAMP
 - **Database Management**: phpMyAdmin
 - **Code Editor**: VS Code (recommended)
+- **Package Manager**: Composer (optional)
 
 ---
 
@@ -117,12 +152,12 @@ Pastikan sistem Anda memiliki:
 
 3. **Import database structure**
    ```bash
-   mysql -u root -p msglow_store < msglow/database_update.sql
+   mysql -u root -p msglow_store < msglow_store_database.sql
    ```
 
 4. **Configure database connection**
    ```php
-   // Edit msglow/config/database.php
+   // Edit config/database.php
    $host = "localhost";
    $username = "root";
    $password = "";
@@ -131,12 +166,12 @@ Pastikan sistem Anda memiliki:
 
 5. **Set file permissions**
    ```bash
-   chmod -R 755 msglow/uploads/
+   chmod -R 755 uploads/
    ```
 
 6. **Access application**
    ```
-   http://localhost/MSglowstore/msglow/
+   http://localhost/MSglowstore/
    ```
 
 📚 **Detailed Installation Guide**: [docs/INSTALLATION.md](docs/INSTALLATION.md)
@@ -157,8 +192,68 @@ Pastikan sistem Anda memiliki:
 2. **Manage Products** → Add, edit, or remove products
 3. **Process Orders** → Update order status and manage fulfillment
 4. **Monitor Analytics** → View sales reports and statistics
+5. **Generate Reports** → Export sales reports to PDF
 
 📖 **Complete User Guide**: [docs/USAGE.md](docs/USAGE.md)
+
+---
+
+## 📁 Project Structure
+
+```
+MSglowstore/
+├── docs/                      # Documentation
+│   ├── DATABASE.md           # Database schema and setup
+│   ├── DEPLOYMENT.md         # Deployment guide
+│   ├── INSTALLATION.md       # Installation instructions
+│   ├── USAGE.md             # User guide
+│   ├── README_orders.md     # Order system documentation
+│   └── erd_diagram.png      # Entity relationship diagram
+├── admin/                    # Admin panel
+│   ├── orders.php           # Order management
+│   ├── users.php            # User management
+│   ├── sales_report.php     # Sales reports
+│   ├── sales_report_pdf.php # PDF export
+│   ├── order_detail.php     # Order details
+│   └── reset_admin_password.php # Password reset
+├── categories/               # Category management
+│   ├── index.php            # Category list
+│   ├── create.php           # Add category
+│   ├── edit.php             # Edit category
+│   └── delete.php           # Delete category
+├── config/                   # Configuration files
+│   └── database.php         # Database connection
+├── orders/                   # Order management
+│   ├── index.php            # Order history
+│   ├── checkout.php         # Checkout process
+│   ├── checkout_simple.php  # Simple checkout
+│   ├── confirmation.php     # Order confirmation
+│   ├── thank_you.php        # Thank you page
+│   ├── debug.php            # Debug tools
+│   └── README.md            # Order system docs
+├── payment_methods/          # Payment method management
+│   ├── index.php            # Payment method list
+│   ├── create.php           # Add payment method
+│   ├── edit.php             # Edit payment method
+│   └── delete.php           # Delete payment method
+├── products/                 # Product management
+│   ├── index.php            # Product list
+│   ├── create.php           # Add product
+│   ├── edit.php             # Edit product
+│   └── delete.php           # Delete product
+├── uploads/                  # File uploads
+│   ├── products/            # Product images
+│   ├── banners/             # Banner images
+│   └── ambassadors/         # Ambassador images
+├── index.php                # Homepage
+├── login.php                # Login page
+├── register.php             # Registration page
+├── logout.php               # Logout handler
+├── dashboard.php            # User dashboard
+├── pemesanan.php            # Order page
+├── proses_pemesanan.php     # Order processing
+└── msglow_store_database.sql # Database structure
+```
 
 ---
 
@@ -171,18 +266,50 @@ Pastikan sistem Anda memiliki:
 - **orders** - Order management
 - **order_items** - Order line items
 - **payment_methods** - Payment options
+- **shipping_methods** - Shipping options
+- **product_reviews** - Product reviews and ratings
+- **coupons** - Discount coupons
+- **cart** - Shopping cart items
 
 ### Entity Relationships
 ```mermaid
 erDiagram
     users ||--o{ orders : places
+    users ||--o{ cart : has
+    users ||--o{ product_reviews : writes
     orders ||--o{ order_items : contains
     products ||--o{ order_items : includes
+    products ||--o{ cart : contains
+    products ||--o{ product_reviews : receives
     categories ||--o{ products : categorizes
     payment_methods ||--o{ orders : processes
+    shipping_methods ||--o{ orders : ships
+    coupons ||--o{ orders : applies
 ```
 
 📊 **Database Documentation**: [docs/DATABASE.md](docs/DATABASE.md)
+
+---
+
+## 🔧 API Endpoints
+
+### Public Endpoints
+- `GET /` - Homepage
+- `GET /products/` - Product catalog
+- `POST /login.php` - User login
+- `POST /register.php` - User registration
+
+### User Endpoints (Authenticated)
+- `GET /dashboard.php` - User dashboard
+- `GET /orders/` - Order history
+- `POST /orders/checkout.php` - Checkout process
+- `GET /orders/confirmation.php` - Order confirmation
+
+### Admin Endpoints (Admin Only)
+- `GET /admin/orders.php` - Order management
+- `GET /admin/users.php` - User management
+- `GET /admin/sales_report.php` - Sales reports
+- `GET /admin/sales_report_pdf.php` - PDF export
 
 ---
 
@@ -198,6 +325,48 @@ erDiagram
 🔧 **Deployment Guide**: [docs/DEPLOYMENT.md](docs/DEPLOYMENT.md)
 
 ---
+
+## 🤝 Contributing
+
+1. Fork the repository
+2. Create your feature branch (`git checkout -b feature/AmazingFeature`)
+3. Commit your changes (`git commit -m 'Add some AmazingFeature'`)
+4. Push to the branch (`git push origin feature/AmazingFeature`)
+5. Open a Pull Request
+
+---
+
+## 📄 License
+
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+
+---
+
+## 🆘 Support
+
+Jika Anda mengalami masalah atau memiliki pertanyaan:
+
+- 📧 **Email**: support@msglow.com
+- 📱 **WhatsApp**: +62 812-3456-7890
+- 🐛 **Issues**: [GitHub Issues](https://github.com/your-repo/issues)
+- 📖 **Documentation**: [docs/](docs/)
+
+---
+
+## 🎉 Acknowledgments
+
+- MS Glow untuk brand dan produk
+- Bootstrap untuk UI framework
+- Font Awesome untuk icons
+- jQuery untuk JavaScript functionality
+- Chart.js untuk dashboard analytics
+
+---
+
+<div align="center">
+  <p>Made with ❤️ for MS Glow Store</p>
+  <p>© 2024 MS Glow Store. All rights reserved.</p>
+</div>
 
 ## 📁 Project Structure
 
