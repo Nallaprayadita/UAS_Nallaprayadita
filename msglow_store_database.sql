@@ -224,7 +224,7 @@ ON DUPLICATE KEY UPDATE
 
 -- Insert sample admin user (password: admin123)
 INSERT INTO users (id, name, email, password, role, email_verified) VALUES
-(1, 'Administrator', 'admin@msglow.com', '$2a$12$EhizkQ7ugF6DvxbOjhUc/OkXuzemQ2f9GlWqVeEjIcLrey3M9R6QC', 'admin', TRUE)
+(1, 'Administrator', 'admin@msglow.com', '$2a$12$lkMeLcogCNvEj8jFsjnemuJ6j0Ejf6bgIe.RGTVs9h2JnY/Ak/Qea', 'admin', TRUE)
 ON DUPLICATE KEY UPDATE 
     name = VALUES(name),
     email = VALUES(email),
@@ -234,9 +234,7 @@ ON DUPLICATE KEY UPDATE
 
 -- Insert sample regular users (password: user123)
 INSERT INTO users (id, name, email, password, phone, address, role) VALUES
-(2, 'user1', 'user1@msglow.com', '$2a$12$53kMcus8.1jJ3Vb0CFj/e.TB.5x7sWvh2X9HLsCTDztcw6K3JiYtq', '081234567890', 'Jl. Contoh No. 123, Jakarta', 'user'),
-(3, 'Jane Smith', 'jane@example.com', '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi', '081234567891', 'Jl. Contoh No. 456, Bandung', 'user'),
-(4, 'Bob Wilson', 'bob@example.com', '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi', '081234567892', 'Jl. Contoh No. 789, Surabaya', 'user')
+(2, 'user', 'user@msglow.com', '$2a$12$QSg9IUtP/sT.cChyqgdPyOpjD1JheB2uvsyvc8O8r8i7Agcvn6.9W', '081234567890', 'Jl. Contoh No. 123, Jakarta', 'user'),
 ON DUPLICATE KEY UPDATE 
     name = VALUES(name),
     email = VALUES(email),
