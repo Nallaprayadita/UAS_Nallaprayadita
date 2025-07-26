@@ -368,7 +368,7 @@ Jika Anda mengalami masalah atau memiliki pertanyaan:
 
 <div align="center">
   <p>Made with ❤️ for MS Glow Store</p>
-  <p>© 2024 MS Glow Store. All rights reserved.</p>
+  <p>© 2025 MS Glow Store. All rights reserved.</p>
 </div>
 
 ## 📁 Project Structure
