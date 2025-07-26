@@ -1,5 +1,8 @@
 # MS Glow Store - E-Commerce Platform
 
+📽️ **Demo Aplikasi (YouTube):**  
+[👉 Klik untuk menonton demo aplikasi](https://youtu.be/9v8mYAi-pPo?si=UlfuVZ7aMff3WbSh)
+
 <div align="center">
   <img src="docs/erd_diagram.png" alt="MS Glow Store Logo" width="200"/>
   
