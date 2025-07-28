@@ -60,7 +60,7 @@ Password: admin123
 
 ### 👤 User Account
 ```
-Email: user@msglow.com
+Email: user4@msglow.com
 Password: user123
 ```
 **Akses:** Shopping, checkout, riwayat pesanan, dan profil user
